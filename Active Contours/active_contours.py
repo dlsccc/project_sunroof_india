@@ -7,6 +7,7 @@ from skimage.segmentation import active_contour
 from cv2 import imread
 import scipy
 
+#1111111
 # Bilate filtered image. Sharpened image helps to give a better edge approximation.
 img = imread('bilate.png')
 img = rgb2gray(img)
