@@ -1,19 +1,20 @@
 # import the necessary packages
 import numpy as np
 import glob
-import cv2
+import cv2  #openCV库，用于图像处理
 import matplotlib.pyplot as plt
 
 
+# 定义直方图均衡化函数，增强对比度
 def equalize(img):
-    ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCR_CB)
-    channels = cv2.split(ycrcb)
-    cv2.equalizeHist(channels[0], channels[0])
-    cv2.merge(channels, ycrcb)
-    cv2.cvtColor(ycrcb, cv2.COLOR_YCR_CB2BGR, img)
+    ycrcb = cv2.cvtColor(img, cv2.COLOR_BGR2YCR_CB)     # 将图像转换为YCrCb颜色空间
+    channels = cv2.split(ycrcb)                         # 将颜色通道分离
+    cv2.equalizeHist(channels[0], channels[0])          # 对亮度通道进行直方图均衡化
+    cv2.merge(channels, ycrcb)                          # 合并通道
+    cv2.cvtColor(ycrcb, cv2.COLOR_YCR_CB2BGR, img)      # 将图像转换回BGR空间
     return img
 
-
+# 定义自动Canny边缘检测函数
 def auto_canny(image, sigma=0.33):
     # compute the median of the single channel pixel intensities
     v = np.median(image)
@@ -31,7 +32,7 @@ def auto_canny(image, sigma=0.33):
 # ap.add_argument("-i", "-F:\CV Coding\rooftops", required=True,
 # help="F:\CV Coding\rooftops")
 # args = vars(ap.parse_args())F:\CV Coding\rooftops
-images = glob.glob("*.jpg")
+images = glob.glob(r"E:\code\project_sunroof_india\Edge Extraction\test.jpg")
 
 # loop over the images
 for imagePath in images:
@@ -79,8 +80,8 @@ for imagePath in images:
     plt.show()
 
 plt.figure("Original")
-plt.close()
+# plt.close()
 plt.figure("Nothing")
-plt.close()
+# plt.close()
 plt.figure("Blur/Smooth")
-plt.close()
+# plt.close()

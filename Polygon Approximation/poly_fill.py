@@ -77,7 +77,7 @@ def createLineIterator(P1, P2, im):
     return itbuffer
 '''
 
-im = cv2.imread('124.png')
+im = cv2.imread(r'E:\code\project_sunroof_india\Edge Extraction\bilate.png')
 img = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)   # 1st image use
 # img = cv2.bitwise_not(img)
 
@@ -175,7 +175,7 @@ for cnt in contours:
 # for cnt in contours:
 #     cv2.drawContours(im, [cnt], 0, 0, -1)
 white_gray1 = cv2.cvtColor(white_polygon, cv2.COLOR_BGR2GRAY)
-opened = opening(white_gray1, selem=disk(4))
+opened = opening(white_gray1, disk(4))
 # kernel_sharp = np.array((
 #          [-2, -2, -2],
 #          [-2, 17, -2],

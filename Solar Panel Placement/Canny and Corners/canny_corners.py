@@ -1,7 +1,8 @@
 import cv2
 from scipy import ndimage
 from PIL import Image
-from pylab import *
+# from pylab import *
+import numpy as np
 from PIL.Image import *
 import math
 from shapely.geometry import Polygon
@@ -33,6 +34,7 @@ def LatLonToPixels(lat, lon):
     pixel_y = (my + originShift) / res
 
     PixelsToLatlon(pixel_x, pixel_y)
+    return pixel_x,pixel_y
 
 
 def PixelsToLatlon(pixel_x, pixel_y):
@@ -148,6 +150,7 @@ def center(im):
     # print (counts)
     # compute the center of the contour
     moments = cv2.moments(cnts[0])
+    print(moments["m00"])
     center_x = int(moments["m10"] / moments["m00"])
     center_y = int(moments["m01"] / moments["m00"])
     return center_x, center_y, counts
@@ -162,7 +165,7 @@ def find_corners(cornerx, cornery):
         # LatLonToPixels(lat_pixel, long_pixel)
 
 
-img = open('2.jpg').convert('L')
+img = open(r'E:\code\project_sunroof_india\Solar Panel Placement\Canny and Corners\2.jpg').convert('L')
 gray = np.array(img)
 a, b = center_corner(img)
 print (a, b)

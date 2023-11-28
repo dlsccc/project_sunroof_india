@@ -96,12 +96,12 @@ def contour_fill(im, white_gray):
 
     # Filling the polygon
     poly_gaps = cv2.cvtColor(white_polygon, cv2.COLOR_BGR2GRAY)
-    opened = opening(poly_gaps, selem=disk(4))
+    opened = opening(poly_gaps, disk(4))
     plt.imshow(opened, cmap='gray')
     plt.show()
     return opened
 
 
-hough_lines(cv2.imread('erode.png'))
+hough_lines(cv2.imread(r'E:\code\project_sunroof_india\Edge Extraction\bilate.png'))
 # image = cv2.imread('ob.png')
 # hough_lines(image)

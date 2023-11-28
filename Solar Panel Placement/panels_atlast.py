@@ -236,11 +236,12 @@ def panel_rotation(panels_series, solar_roof_area):
         panels_series = panels_series - 1
     result = Image.fromarray(high_reso_orig)
     resut_2 = Image.fromarray(high_reso_new)
-    result.save('output' + fname )
-    resut_2.save('panels' + fname)
+    result.save(r'E:\code\project_sunroof_india\Solar Panel Placement\Canny and Corners\1_1.jpg' )
+    resut_2.save(r'E:\code\project_sunroof_india\Solar Panel Placement\Canny and Corners\1_2.jpg' )
     plt.figure()
     plt.axis('off')
-    plt.imshow(high_reso_orig)
+    plt.title('high_reso')
+    plt.imshow(high_reso)
     plt.figure()
     plt.axis('off')
     plt.imshow(high_reso_new)
@@ -248,7 +249,7 @@ def panel_rotation(panels_series, solar_roof_area):
 
 
 if __name__ == "__main__":
-    images = glob.glob('1.jpg')
+    images = glob.glob(r'E:\code\project_sunroof_india\Edge Extraction\test.jpg')
     # latitude = ??
     # pl, pw, l, w, solar_angle = solar_panel_params()
     # length, width = pixels_per_mm(latitude)

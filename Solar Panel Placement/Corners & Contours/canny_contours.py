@@ -1,4 +1,4 @@
-import Image
+# import Image
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,7 +14,7 @@ def white_image(im):
     return cv2.bitwise_not(np.zeros(im.shape, np.uint8))
 
 
-images = glob.glob('*.jpg')
+images = glob.glob(r'E:\code\project_sunroof_india\Edge Extraction\test.jpg')
 
 for fname in images:
     image = cv2.imread(fname)
@@ -94,8 +94,8 @@ for fname in images:
     plt.title('1')
     plt.imshow(image, cmap='gray')
 
-    res = closing(cv2.bitwise_not(wh_gray), selem=disk(1))
-    wes = closing(cv2.bitwise_not(wh_gray1), selem=disk(1))
+    res = closing(cv2.bitwise_not(wh_gray), disk(1))
+    wes = closing(cv2.bitwise_not(wh_gray1), disk(1))
 
     plt.figure()
     plt.imshow(wh_gray, cmap='gray')
